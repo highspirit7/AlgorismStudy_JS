@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    function solution(day, arr) {
+      const answer = [];
+
+      // filter메소드 쓰면 더 간단해질듯
+      for (const element of arr) {
+        if (element % 10 === day) answer.push(element);
+      }
+
+      return answer.length;
+    }
+
+    arr = [25, 23, 11, 47, 53, 17, 33];
+    console.log(solution(3, arr));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    function solution(s, t) {
+      let answer = 0;
+
+      for (let letter of s) {
+        if (letter === t) answer++;
+      }
+
+      return answer;
+    }
+
+    let str = "COMPUTERPROGRAMMING";
+    console.log(solution(str, 'O'));
+  </script>
+</body>
+
+</html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    function solution(s, t) {
+      const regex = new RegExp(t, "g");
+      const result = s.match(regex);
+      return result?.length ? result.length : 0;
+    }
+
+    let string = "COMPUTERPROGRAMMING";
+    console.log(solution(string, 'G'));
+  </script>
+</body>
+
+</html>

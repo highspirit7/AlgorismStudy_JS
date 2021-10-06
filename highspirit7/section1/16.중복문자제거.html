@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>중복문자제거</title>
+</head>
+
+<body>
+  <script>
+    // function solution(s) {
+    //   const uniqueLetters = [];
+
+    //   for (let letter of s) {
+    //     if (uniqueLetters.every((element => element !== letter))) uniqueLetters.push(letter)
+    //   }
+
+    //   return uniqueLetters.join("");
+    // }
+    // console.log(solution("ksekkset"));
+    function solution(s) {
+        let answer = '';
+
+        for (let i of s) {
+          if (answer.indexOf(i) === -1) answer += i;
+        }
+
+        return answer;
+      }
+
+      console.log(solution("ksekksessat"));
+  </script>
+</body>
+
+</html>

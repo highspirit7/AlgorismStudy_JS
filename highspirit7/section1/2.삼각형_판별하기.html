@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    // 삼각형 변 길이 조건
+    // 가장 긴 변이  다른 두 변의 합보다는 작다
+
+    function solution(a, b, c) {
+      const sides = [a, b, c];
+
+      // 오름차순으로 정렬
+      sides.sort(function (a, b) {
+        return a - b;
+      });;
+
+      return (sides[0] + sides[1]) > sides[2] ? "YES" : "NO";
+    }
+
+    console.log(solution(13, 33, 17));
+  </script>
+</body>
+
+</html>

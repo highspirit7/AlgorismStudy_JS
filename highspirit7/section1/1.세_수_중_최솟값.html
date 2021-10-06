@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    function solution(a, b, c) {
+      let answer;
+
+      // a가 b를 먼저 비교하여 작은 숫자를 찾아 저장
+      if (a > b) answer = b;
+      // a가 작거나 아니면 b와 같은 경우 a를 저장
+      else answer = a;
+
+      // 그리고 그 숫자를 c와 비교하여 c가 작으면 c를 대입하여 출력
+      if (answer > c) answer = c;
+
+      // answer가 c보다 적거나 같으면 그냥 answer 출력
+      return answer;
+    }
+
+    console.log(solution(11, 62, 2));
+  </script>
+</body>
+
+</html>

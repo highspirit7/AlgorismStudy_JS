@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    // timer1 : 0.1 ~ 0.2ms
+    console.time('timer1');
+    function solution(s) {
+      return s.toUpperCase();
+    }
+
+    let str = "ItisTimeToStudyItisTimeToStudyItisTimeToStudyItisTimeToStudyItisTimeToStudy";
+    console.log(solution(str));
+    console.timeEnd('timer1');
+  </script>
+</body>
+
+</html>
+
+<!-- <html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    // timer2 : 0.2 ~ 0.3ms
+    console.time('timer2');
+    function solution(s) {
+      let answer = "";
+
+      for (let x of s) {
+        if (x === x.toLowerCase()) answer += x.toUpperCase();
+        else answer += x;
+      }
+      return answer;
+    }
+
+    let str = "ItisTimeToStudyItisTimeToStudyItisTimeToStudyItisTimeToStudyItisTimeToStudy";
+    console.log(solution(str));
+    console.timeEnd('timer2');
+  </script>
+</body>
+
+</html> -->
