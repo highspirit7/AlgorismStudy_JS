@@ -20,9 +20,9 @@
 
         for (let j = 0; j < arr.length; j++) {
           const northHeight = arr[i - 1] ? arr[i - 1][j] : 0;
-          const eastHeight = arr[i][j + 1] || 0;
+          const eastHeight = arr[i][j + 1] ?? 0;
           const southHeight = arr[i + 1] ? arr[i + 1][j] : 0;
-          const westHeight = arr[i][j - 1] || 0;
+          const westHeight = arr[i][j - 1] ?? 0;
 
           if (arr[i][j] > northHeight && arr[i][j] > eastHeight && arr[i][j] > southHeight && arr[i][j] > westHeight) answer += 1;
         }
