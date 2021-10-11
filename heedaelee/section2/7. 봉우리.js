@@ -49,7 +49,7 @@ function solution(arr) {
     for (let j = 0; j < l; j++) {
       let flag = 0;
 
-      for (let k = 0; k < 4; k++) {
+      for (let k = 0; k < arr.lenght - 1; k++) {
         let x = j + dx[k];
         let y = i + dy[k];
         //포인트 2: (원래 값 좌표에서 앞의 비교할 값 좌표를 for문으로 뽑아낸뒤)
