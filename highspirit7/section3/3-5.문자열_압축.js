@@ -20,5 +20,23 @@ function solution(s) {
 	return answer;
 }
 
-let str = 'KKKKZZZUUSS';
-console.log(solution(str));
+// let str = 'KKKKZZZUUSS';
+// console.log(solution(str));
+
+// David 솔루션 바탕으로 더 간결하게 재구성해본 솔루션
+// function solution(param) {
+//   let answer = "";
+//   let cnt = 1;
+
+//   for (let i = 0; i < param.length; i++) {
+//     if (param[i] === param[i + 1]) {
+//       cnt++;
+//     } else {
+//       answer += param[i] + (cnt === 1 ? "" : cnt);
+//       cnt = 1;
+//     }
+//   }
+//   return answer;
+// }
+// let str = "KSSSJJJAKJMM";
+// console.log(solution(str));
