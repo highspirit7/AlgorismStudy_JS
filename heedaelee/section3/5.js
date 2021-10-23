@@ -22,9 +22,11 @@ function solution(param) {
     // 문제풀이가 막힐때는 index와 answer를 for문내에서 항상 출력해본다.
     // console.log(`i : ${i} answer : ${answer} cnt : ${cnt}`);
 
-    //마지막 인덱스 처리 해줘야함 : param[i + 1] 의 값이 없으므로. 
+    //마지막 인덱스 처리 해줘야함 : param[i + 1] 의 값이 없으므로.
     //return 처리도 여기서
     if (i === param.length - 1) {
+      //FORTEST:
+      console.log(`A index 번호 : ${i}`);
       if (cnt === 1) {
         answer += param[i];
       } else {
@@ -39,6 +41,8 @@ function solution(param) {
 
     if (param[i] === param[i + 1]) {
       cnt++;
+      //FORTEST:
+      console.log(`B index 번호 : ${i}`);
     } else {
       if (cnt === 1) {
         answer += param[i];
