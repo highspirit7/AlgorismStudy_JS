@@ -49,7 +49,7 @@ function solution(num, tMoney, p) {
       if (i === maxPriceIndex) {
         totalPrice += p[i][0] * 0.5 + p[i][1];
         // console.log(`fsrtotal : ${totalPrice}`)
-      //가장 비싼거 아니면, 모두 정상가격 받는다
+        //가장 비싼거 아니면, 모두 정상가격 받는다
       } else {
         totalPrice += p[i][0] + p[i][1];
         // console.log(`justtotal : ${totalPrice}`)
@@ -57,7 +57,6 @@ function solution(num, tMoney, p) {
     }
     console.log("총 선물 가격 : ", totalPrice);
 
-    
     if (tMoney < totalPrice) {
       //쌤 가진 돈 보다 더 비쌀때
       p.splice(maxPriceIndex, 1);
