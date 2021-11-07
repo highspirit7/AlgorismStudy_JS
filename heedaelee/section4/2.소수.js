@@ -13,6 +13,21 @@ N개의 자연수가 입력되면 각 자연수를 뒤집은 후 그 뒤집은 �
 */
 
 //문제 : 숫자 뒤집어서 소수이면 출력해. 근데 뒤집어서 첨에 0이면 숫자 취급하고
+//수정: 21/11/07
+// 함수 없는 로직에서, 답안 보고 isPrime 함수 만들어 수정
+
+/* param : reversNum
+  return : boolean(isPrime?)
+ */
+function isPrime(p) {
+  //1은 소수가 아니다
+  if (p === 1) return false;
+  //2부터 각 거꾸로 된 숫자 까지 for문 돌리기
+  for (let i = 2; i < parseInt(Math.sqrt(p)); i++) {
+    if (p % i === 0) return false;
+  }
+  return true;
+}
 
 function solution(param) {
   let answer = [];
@@ -20,22 +35,10 @@ function solution(param) {
     //join ("") 쌍따옴표 생략시 쉼표도 같이 포함해서 join..
     //reverse도 배열을 반환. 마지막에 배열이 아닌 문자열이나 넘버를 얻으려면 join을 사용해줘야함
     let reverseNum = Number(String(e).split("").reverse().join(""));
-    let primeNumFlag = true;
+
     // console.log(`reverseNum : ${reverseNum}`);
 
-    //1은 소수가 아니다
-    reverseNum === 1 && (primeNumFlag = false);
-
-    //2부터 각 거꾸로 된 숫자 까지 for문 돌리기
-    for (let i = 2; i < reverseNum; i++) {
-      // 나머지가 0이면 소수가 아니다
-      if (reverseNum % i === 0) {
-        // console.log(reverseNum);
-        primeNumFlag = false;
-      }
-    }
-    //flag가 true이면 정답에 push
-    primeNumFlag && answer.push(reverseNum);
+    isPrime(reverseNum) && answer.push(reverseNum);
   });
 
   return answer;

@@ -20,6 +20,7 @@ function solution(numOfCard, numOfPick, card) {
   let answerArray = [];
 
   //정렬 부터 해야
+  //sort 함수에서 return 값이 0보다 작으면, 순서를 바꿈, 즉 내림차순 정렬이 되게끔 만듦
   card.sort((a, b) => b - a);
 
   for (let i = 0; i < numOfCard; i++) {
