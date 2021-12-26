@@ -20,9 +20,9 @@ function solution(str1, str2) {
   }
 
   if (str1Map.size !== str2Map.size) answer = "NO";
-
+  
   for (const [key, value] of str1Map) {
-    if (!str1Map.has(key)) {
+    if (!str2Map.has(key)) {
       answer = "NO";
       break;
     }
