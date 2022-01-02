@@ -21,18 +21,27 @@ function solution(numOfCard, numOfPick, card) {
 
   //정렬 부터 해야
   //sort 함수에서 return 값이 0보다 작으면, 순서를 바꿈, 즉 내림차순 정렬이 되게끔 만듦
-  card.sort((a, b) => b - a);
+  // card.sort((a, b) => b - a);
+  // console.log(card)
 
   for (let i = 0; i < numOfCard; i++) {
     for (let j = i + 1; j < numOfCard; j++) {
       for (let k = j + 1; k < numOfCard; k++) {
+        console.log(
+          `${card[i]} + ${card[j]} + ${card[k]} = ${
+            card[i] + card[j] + card[k]
+          }`
+        );
         answerArray.push(card[i] + card[j] + card[k]);
       }
     }
   }
   // console.log(answerArray);
+  answerArray.sort((a, b) => b - a);
+  const newArray = Array.from(new Set(answerArray));
+  console.log(newArray);
 
-  answer = answerArray[numOfPick];
+  answer = newArray[numOfPick];
   return answer;
 }
 let numOfCard = 10,
