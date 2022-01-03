@@ -1,0 +1,23 @@
+{
+  "name": "algorismstudy_js",
+  "version": "1.0.0",
+  "description": "자바스크립트 알고리즘 문제풀이(코딩 테스트 대비) 인프런 강의에서 제공하는 문제를 풀어보고 업로드하는 저장소",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/highspirit7/AlgorismStudy_JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/highspirit7/AlgorismStudy_JS/issues"
+  },
+  "homepage": "https://github.com/highspirit7/AlgorismStudy_JS#readme",
+  "devDependencies": {
+    "jest": "^27.4.5"
+  }
+}
