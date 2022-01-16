@@ -12,6 +12,12 @@ export default function solution(s) {
 
   for (let i = 0; i < s.length; i++) {
     const convertedToNum = Number(s[i]);
+
+    /**
+     * __정답 강의 보고 배운 것__
+     * isNaN 메소드는 숫자가 문자열 형태로 있어도 숫자로 인식하고 동작한다.
+     * 이 부분을 문제 풀때는 몰랐기 때문에 먼저 숫자로 변환하려고 했었다.
+     */
     if (isNaN(convertedToNum)) {
       // 숫자가 아니고 연산부호인 경우
       const numberB = stack.pop();
