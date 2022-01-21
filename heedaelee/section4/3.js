@@ -5,7 +5,7 @@
 
 //2차원 배열이니까 값을 읽으려면 기본으로 이중 for문이고
 //거기에 두 수를 bruteForce로 비교해야하니까 두 수 비교 또한 for문
-//그래서 4중 for 문이 필요. 
+//그래서 4중 for 문이 필요.
 //전자 학생이 1일 때 후자 학생은 2,3,4가 되고,
 //2일때 3,4, 3일때 4로 이중 for문을 만든 다음
 //두 수 중 어느수가 index가 전체 n번 시험에서 모두 적은 수였냐? 를 조건 분기 하면 됨 (count 사용)
@@ -18,16 +18,16 @@ function solution(studentNum, testCount, record) {
     secHigherThanFstCount = 0;
 
   //비교할 수 2개를 가지고 중복 for문을 만든다
-  for (let g = 1; g < studentNum; g++) {
-    for (let h = g + 1; h <= studentNum; h++) {
+  for (let fstStud = 1; fstStud < studentNum; fstStud++) {
+    for (let secStud = fstStud + 1; secStud <= studentNum; secStud++) {
       //2차원 배열을 위한 for문
       for (let i = 0; i < testCount; i++) {
         for (let j = 0; j < studentNum; j++) {
-          if (record[i][j] === g) fsrIndex = j;
-          if (record[i][j] === h) secIndex = j;
+          if (record[i][j] === fstStud) fsrIndex = j;
+          if (record[i][j] === secStud) secIndex = j;
         }
         console.log(
-          `g : ${g}, h : ${h}, fsrIndex : ${fsrIndex}, secIndex ${secIndex}`
+          `첫번째 학생 : ${fstStud}, 두번째 학생 : ${secStud}, 첫번째 학생 Index : ${fsrIndex}, 두번째 학생 Index ${secIndex}`
         );
         if (fsrIndex > secIndex) fstHigherThanSecCount++;
         else secHigherThanFstCount++;
@@ -36,9 +36,11 @@ function solution(studentNum, testCount, record) {
         fstHigherThanSecCount === testCount ||
         secHigherThanFstCount === testCount
       ) {
-        fstHigherThanSecCount && console.log(`멘토 멘티가 만들어지는 경우 (${h}, ${g})`);
-        secHigherThanFstCount && console.log(`멘토 멘티가 만들어지는 경우 (${g}, ${h})`);
-        
+        fstHigherThanSecCount &&
+          console.log(`멘토 멘티가 만들어지는 경우 (${secStud}, ${fstStud})`);
+        secHigherThanFstCount &&
+          console.log(`멘토 멘티가 만들어지는 경우 (${fstStud}, ${secStud})`);
+
         answer++;
       }
       fstHigherThanSecCount = 0;

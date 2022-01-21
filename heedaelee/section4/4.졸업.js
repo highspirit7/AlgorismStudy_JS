@@ -35,11 +35,11 @@ function solution(num, tMoney, p) {
     //할인 되서 가장 높은 가격 index 알아내는 for문
     for (let i = 0; i < num; i++) {
       let discountedPrice = p[i][0] * 0.5 + p[i][1];
-      // console.log("discountedPrice", discountedPrice);
+      console.log("discountedPrice", discountedPrice);
       if (discountedPrice > maxPrice) {
         maxPrice = discountedPrice;
         maxPriceIndex = i;
-        // console.log(i);
+        console.log('배송비 말고 가격만 50% 할인 받는 것 중 최고 값 인덱스 :  ', i);
       }
     }
     // console.log(`fsrH : ${maxPriceIndex}`);
@@ -58,7 +58,8 @@ function solution(num, tMoney, p) {
     console.log("총 선물 가격 : ", totalPrice);
 
     if (tMoney < totalPrice) {
-      //쌤 가진 돈 보다 더 비쌀때
+      //쌤 가진 돈 보다 더 비쌀때\
+      console.log('삭제할 인덱스 : ', maxPriceIndex );
       p.splice(maxPriceIndex, 1);
       //2차원 배열에서 1차원 배열 중 가장 비싼 가격의 배열 요소를 삭제 해준다. splice() 사용
       // 한 요소를 삭제했으니 총 인원도 1명 줄여야 반복 for문에서 에러가 안나옴.
@@ -73,14 +74,15 @@ function solution(num, tMoney, p) {
   }
 }
 
-const stuNum = 5,
+const stuNum = 6,
   teacherMoney = 28;
 const priceAndDelivery = [
   [6, 6],
   [2, 2],
   [4, 3],
   [4, 5],
-  [10, 3],
+  [10, 3], 8
+  [8, 6]
 ];
 
 console.log(solution(stuNum, teacherMoney, priceAndDelivery));
