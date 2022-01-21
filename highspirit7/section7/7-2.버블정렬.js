@@ -9,9 +9,11 @@ function solution(arr) {
       console.log(`${i + 1} : ${arr[i + 1]}`);
 
       if (arr[i] > arr[i + 1]) {
-        const temp = arr[i + 1];
-        arr[i + 1] = arr[i];
-        arr[i] = temp;
+        // const temp = arr[i + 1];
+        // arr[i + 1] = arr[i];
+        // arr[i] = temp;
+
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
       }
       console.log(arr);
     }
@@ -24,6 +26,5 @@ function solution(arr) {
   return answer;
 }
 
-// let arr = [13, 5, 11, 7, 23, 15];
 let arr = [13, 5, 11, 7, 23, 15, 34, 22];
 solution(arr);
