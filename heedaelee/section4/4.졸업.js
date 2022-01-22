@@ -29,6 +29,8 @@
 function solution(num, tMoney, p) {
   for (let j = 0; j < num; j++) {
     let maxPrice = 0;
+    let maxOnlyPriceIndex = 0;
+    let maxOnlyPrice = 0;
     let maxPriceIndex = 0;
     let totalPrice = 0;
 
@@ -39,14 +41,25 @@ function solution(num, tMoney, p) {
       if (discountedPrice > maxPrice) {
         maxPrice = discountedPrice;
         maxPriceIndex = i;
-        console.log('배송비 말고 가격만 50% 할인 받는 것 중 최고 값 인덱스 :  ', i);
+        console.log(
+          "배송비 말고 가격만 50% 할인 받는 것 중 최고 값 인덱스 :  ",
+          i
+        );
+      }
+
+      if (maxOnlyPrice < p[i][0]) {
+        maxOnlyPriceIndex = i;
+        maxOnlyPrice = p[i][0]
+        console.log("maxOnlyPriceIndex", maxOnlyPriceIndex);
+        console.log("maxOnlyPrice", maxOnlyPrice);
       }
     }
     // console.log(`fsrH : ${maxPriceIndex}`);
 
     for (let i = 0; i < num; i++) {
       //가장 비싼 가격 상품의 학생일때, 할인 받는다
-      if (i === maxPriceIndex) {
+      if (i === maxOnlyPriceIndex) {
+        console.log('몇번도나?')
         totalPrice += p[i][0] * 0.5 + p[i][1];
         // console.log(`fsrtotal : ${totalPrice}`)
         //가장 비싼거 아니면, 모두 정상가격 받는다
@@ -59,7 +72,7 @@ function solution(num, tMoney, p) {
 
     if (tMoney < totalPrice) {
       //쌤 가진 돈 보다 더 비쌀때\
-      console.log('삭제할 인덱스 : ', maxPriceIndex );
+      console.log("삭제할 인덱스 : ", maxPriceIndex);
       p.splice(maxPriceIndex, 1);
       //2차원 배열에서 1차원 배열 중 가장 비싼 가격의 배열 요소를 삭제 해준다. splice() 사용
       // 한 요소를 삭제했으니 총 인원도 1명 줄여야 반복 for문에서 에러가 안나옴.
@@ -81,8 +94,8 @@ const priceAndDelivery = [
   [2, 2],
   [4, 3],
   [4, 5],
-  [10, 3], 8
-  [8, 6]
+  [1, 4],
+  [4, 5],
 ];
 
-console.log(solution(stuNum, teacherMoney, priceAndDelivery));
+console.log('총 명수 : ', solution(stuNum, teacherMoney, priceAndDelivery));
