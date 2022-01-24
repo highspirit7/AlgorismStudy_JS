@@ -45,6 +45,6 @@ function solution(numOfCard, numOfPick, card) {
   return answer;
 }
 let numOfCard = 10,
-  numOfPick = 2;
+  numOfPick = 9;
 let card = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
 console.log(solution(numOfCard, numOfPick, card));
