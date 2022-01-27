@@ -36,10 +36,10 @@ function solution(numOfCard, numOfPick, card) {
       }
     }
   }
-  // console.log(answerArray);
+  console.log(answerArray);
   answerArray.sort((a, b) => b - a);
   const newArray = Array.from(new Set(answerArray));
-  console.log(newArray);
+  // console.log(newArray);
 
   answer = newArray[numOfPick];
   return answer;
