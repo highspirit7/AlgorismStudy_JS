@@ -26,62 +26,82 @@
 
 */
 
-function solution(num, tMoney, p) {
-  for (let j = 0; j < num; j++) {
+function solution(numOfStud, tMoney, p) {
+  let num = numOfStud;
+  for (let j = 0; j < numOfStud; j++) {
+    console.log(`j : ${j}, num : ${num}, numOfStud : ${numOfStud}`);
     let maxPrice = 0;
+    let maxOnlyPriceIndex = 0;
+    let maxOnlyPrice = 0;
     let maxPriceIndex = 0;
     let totalPrice = 0;
 
     //할인 되서 가장 높은 가격 index 알아내는 for문
     for (let i = 0; i < num; i++) {
+      console.log(`i : ${i}, num : ${num}`);
       let discountedPrice = p[i][0] * 0.5 + p[i][1];
-      // console.log("discountedPrice", discountedPrice);
+      console.log("discountedPrice", discountedPrice);
       if (discountedPrice > maxPrice) {
         maxPrice = discountedPrice;
         maxPriceIndex = i;
-        // console.log(i);
+        console.log(
+          "배송비 말고 가격만 50% 할인 받는 것 중 최고 값 인덱스 :  ",
+          i
+        );
+      }
+
+      if (maxOnlyPrice < p[i][0]) {
+        maxOnlyPriceIndex = i;
+        maxOnlyPrice = p[i][0];
+        console.log("maxOnlyPriceIndex", maxOnlyPriceIndex);
+        console.log("maxOnlyPrice", maxOnlyPrice);
       }
     }
     // console.log(`fsrH : ${maxPriceIndex}`);
 
     for (let i = 0; i < num; i++) {
       //가장 비싼 가격 상품의 학생일때, 할인 받는다
-      if (i === maxPriceIndex) {
+      if (i === maxOnlyPriceIndex) {
+        console.log("몇번도나?");
         totalPrice += p[i][0] * 0.5 + p[i][1];
         // console.log(`fsrtotal : ${totalPrice}`)
-      //가장 비싼거 아니면, 모두 정상가격 받는다
+        //가장 비싼거 아니면, 모두 정상가격 받는다
       } else {
         totalPrice += p[i][0] + p[i][1];
         // console.log(`justtotal : ${totalPrice}`)
       }
     }
     console.log("총 선물 가격 : ", totalPrice);
+    console.log(`tMoney : ${tMoney}, totalPrice : ${totalPrice}`);
 
-    
     if (tMoney < totalPrice) {
-      //쌤 가진 돈 보다 더 비쌀때
+      //쌤 가진 돈 보다 더 비쌀때\
+      console.log("삭제할 인덱스 : ", maxPriceIndex);
       p.splice(maxPriceIndex, 1);
       //2차원 배열에서 1차원 배열 중 가장 비싼 가격의 배열 요소를 삭제 해준다. splice() 사용
       // 한 요소를 삭제했으니 총 인원도 1명 줄여야 반복 for문에서 에러가 안나옴.
+      console.log("num1 : ", num);
       num--;
       // p.forEach((element) => {
       //   console.log(element);
       // });
     } else {
       //쌤 가진 돈이 더 많을때
+      console.log("num2 : ", num);
       return num;
     }
   }
 }
 
-const stuNum = 5,
-  teacherMoney = 28;
+const stuNum = 6,
+  teacherMoney = 44;
 const priceAndDelivery = [
-  [6, 6],
-  [2, 2],
-  [4, 3],
-  [4, 5],
-  [10, 3],
+  [14, 16],
+  [12, 2],
+  [14, 3],
+  [8, 15],
+  [10, 10],
+  [14, 5],
 ];
 
-console.log(solution(stuNum, teacherMoney, priceAndDelivery));
+console.log("총 명수 : ", solution(stuNum, teacherMoney, priceAndDelivery));
