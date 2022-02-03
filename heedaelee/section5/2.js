@@ -14,7 +14,7 @@ function solution(a, b) {
     for (let i = 0; i < m; i++) {
       for (let j = 0; j < n; j++) {
         //a[i]이 b[j]보다 작을때
-        if (a[i] < b[j]) continue;
+        if (a[i] < b[j]) break;
         //a[i]이 b[j]와 같을때
         else if (a[i] === b[j]) {
           answer.push(a[i]);
@@ -28,7 +28,7 @@ function solution(a, b) {
     for (let i = 0; i < n; i++) {
       for (let j = 0; j < m; j++) {
         //b[i]가 a[j]보다 작을때
-        if (b[i] < a[j]) continue;
+        if (b[i] < a[j]) break;
         //b[i]와 a[j]가 같을때
         else if (arr2[i] === arr1[j]) {
           answer.push(arr2[i]);
