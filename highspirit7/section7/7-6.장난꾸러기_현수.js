@@ -1,6 +1,7 @@
 /**
  * @history
  * 8th Feb 2022(ver0) : 하나의 for문은 앞에서 뒤로, 다른 하나의 for문은 뒤에서 앞으로 돌면서 현수와 짝꿍 번호를 추출
+ * 8th Feb 2022(ver1) : 두번째 for문 내부 조건 중 필요없는 부분 제거
  */
 
 function solution(arr) {
@@ -15,7 +16,7 @@ function solution(arr) {
 
 	// 두번째 for문 : 뒤에서 앞으로 가면서 순서대로 정렬되지 않은 것 찾기
 	for (let i = arr.length - 1; i > 0; i--) {
-		if (arr[i] <= arr[i - 1]) {
+		if (arr[i] < arr[i - 1]) {
 			answer.push(i + 1);
 			break;
 		}
