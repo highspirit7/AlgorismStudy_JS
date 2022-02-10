@@ -1,3 +1,9 @@
+/**
+ * @history
+ * 10th Feb 2022(ver0)
+ * 10th Feb 2022(ver1) : Math.max 사용
+ */
+
 function solution(times) {
 	let answer = Number.MIN_SAFE_INTEGER;
 
@@ -15,7 +21,8 @@ function solution(times) {
 		}
 		console.log(`i : ${i}`);
 		console.log(`maxNumOfPeople : ${maxNumOfPeople}`);
-		if (maxNumOfPeople > answer) answer = maxNumOfPeople;
+
+		answer = Math.max(answer, maxNumOfPeople);
 	}
 
 	return answer;
@@ -27,6 +34,5 @@ let arr = [
 	[15, 20],
 	[20, 30],
 	[5, 14],
-	[7, 16],
 ];
 console.log(solution(arr));
