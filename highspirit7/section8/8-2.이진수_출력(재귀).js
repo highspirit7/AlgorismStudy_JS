@@ -1,22 +1,25 @@
+/**
+ * @history
+ * 17th Feb 2022(ver0)
+ * 17th Feb 2022(ver1) : 강의 참고하여 로직 일부 개선
+ */
+
 function solution(n) {
 	let answer = '';
 
 	function recursive(number) {
-		const quotient = Math.floor(number / 2);
-
-		if (quotient === 0) {
+		if (Math.floor(number / 2) === 0) {
 			answer += '1';
-      console.log(`number : ${number}`);
-			console.log(`answer : ${answer}`);
+			// console.log(`number : ${number}`);
+			// console.log(`answer : ${answer}`);
 			return;
 		}
 
-		recursive(quotient);
+		recursive(Math.floor(number / 2));
 
-		if (number % 2 === 0 || quotient === 2) answer += '0';
-		else answer += '1';
-		console.log(`number : ${number}`);
-		console.log(`answer : ${answer}`);
+		answer += String(number % 2);
+		// console.log(`number : ${number}`);
+		// console.log(`answer : ${answer}`);
 	}
 
 	recursive(n);
@@ -24,4 +27,4 @@ function solution(n) {
 	return answer;
 }
 
-console.log(solution(555));
+console.log(solution(11));
