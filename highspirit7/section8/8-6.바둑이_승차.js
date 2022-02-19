@@ -1,21 +1,25 @@
 /**
  * @history
  * 19th Feb 2022(ver0)
+ * 19th Feb 2022(ver1) : sum이 주어진 무게 제한보다 커지는 경우 함수를 종료시켜서 불필요한 작업을 줄이면서 정답을 구할 수 있도록 수정(강의 참고하여)
  */
 
 function solution(c, arr) {
 	let maxWeight = Number.MIN_SAFE_INTEGER;
 
 	function DFS(index, sum) {
+		if (sum > c) return;
+
 		console.log(`index : ${index}`);
 		console.log(`sum : ${sum}`);
 		console.log('-------');
+
 		if (index === arr.length) {
-			if (sum < c) maxWeight = Math.max(sum, maxWeight);
+			maxWeight = Math.max(sum, maxWeight);
 		} else {
 			// sum계산 시 NaN이 나오지 않게 하기 위해 주어진 배열의 인덱스를 벗어나는 값을 조회할 때
 			// 0이 대신 들어가도록 처리
-			DFS(index + 1, sum + (arr[index + 1] ?? 0));
+			DFS(index + 1, sum + (arr[index] ?? 0));
 
 			DFS(index + 1, sum);
 		}
