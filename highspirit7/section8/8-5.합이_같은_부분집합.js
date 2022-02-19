@@ -1,6 +1,7 @@
 /**
  * @history
  * 19th Feb 2022(ver0)
+ * 19th Feb 2022(ver1) : 불필요한 함수 호출을 믹기 위한 코드 삽입
  */
 
 // 문제를 풀이하기 위한 로직(ver0)
@@ -15,6 +16,7 @@ function solution(arr) {
 
 	function DFS(index) {
 		if (sumOfArr % 2 !== 0) return;
+		if (answer === 'YES') return;
 
 		if (index === arr.length) {
 			const sumOfSubset = subset.reduce((a, b) => a + b, 0);
