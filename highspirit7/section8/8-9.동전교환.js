@@ -2,6 +2,7 @@
  * 동전교환
  * @history
  * 21th Feb 2022(ver0)
+ * 21th Feb 2022(ver1) : Cut edge 코드 추가(불필요한 호출 줄이기 위함)
  */
 
 function solution(m, arr) {
@@ -10,7 +11,11 @@ function solution(m, arr) {
 
 	function DFS(count, sum) {
 		if (sum > m) return;
-		else if (sum === m) {
+
+		if (count >= minCount) return;
+
+		if (sum === m) {
+			console.log(`level : ${count}, sum : ${sum}, answer : ${minCount}`);
 			minCount = Math.min(count, minCount);
 		} else {
 			for (let i = 0; i < arr.length; i++) {
