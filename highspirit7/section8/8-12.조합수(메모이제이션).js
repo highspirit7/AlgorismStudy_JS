@@ -1,10 +1,3 @@
-function factorial(number) {
-	if (number === 1) return 1;
-	else {
-		return number * factorial(number - 1);
-	}
-}
-
 function solution(n, r) {
 	let answer;
 	let memoization = Array.from(Array(r + 1), () => Array(n + 1).fill(0));
@@ -18,7 +11,7 @@ function solution(n, r) {
 			// 뽑아야할 숫자 개수가 0일 때 경우의 수는 1가지이다.
 			// 주어진 숫자 개수와 뽑아야할 숫자 개수가 같으면 경우의 수는 1가지이다.
 
-      // n과 r이 같거나 r이 0인 경우에도 제대로 값(1)을 출력하기 위한 코드
+			// n과 r이 같거나 r이 0인 경우에도 제대로 값(1)을 출력하기 위한 코드
 			memoization[taken][total] = 1;
 			return 1;
 		} else {
