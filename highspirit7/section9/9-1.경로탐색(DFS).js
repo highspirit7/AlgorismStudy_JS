@@ -2,7 +2,7 @@ function solution(n, arr) {
 	let answer = [];
 	const graph = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
 
-	// 이미 방문한 정점인지 아닌지 확인하기 위한 배열F
+	// 이미 방문한 정점인지 아닌지 확인하기 위한 배열
 	const check = Array.from({ length: n }, () => 0);
 
 	// 1번 정점에서 출발하는 것이므로 경로 체크 전에 미리 아래와 같이 초기화 필요.
