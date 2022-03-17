@@ -8,8 +8,8 @@ function solution(root) {
 		if (node > 7) return;
 		else {
 			console.log(node);
-			preorder(node * 2);
-			preorder(node * 2 + 1);
+			preorderTraversal(node * 2);
+			preorderTraversal(node * 2 + 1);
 		}
 	}
 
